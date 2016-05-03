@@ -1,0 +1,70 @@
+package datos;
+
+
+import datos.Coordenadas;
+import java.util.ArrayList;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Camilo
+ */
+public class Fotografia {
+    private String nombrearchivo;
+    private String publico;//persona que publico la foto
+    private String descripcionopcional;
+    public ArrayList <String> etiquetados;  
+    public ArrayList <Coordenadas> coordenadas;
+
+    public Fotografia(String nombrearchivo, String descripcionopcional,String publico) {
+        this.nombrearchivo = nombrearchivo;
+        this.descripcionopcional = descripcionopcional;
+        this.publico=publico;
+        this.etiquetados=new ArrayList <String>();
+        this.coordenadas=new ArrayList <Coordenadas>();
+
+    }
+
+    public String getPublico() {
+        return publico;
+    }
+
+    public void setPublico(String publico) {
+        this.publico = publico;
+    }
+    
+
+    public String getNombrearchivo() {
+        return nombrearchivo;
+    }
+
+    public void setNombrearchivo(String nombrearchivo) {
+        this.nombrearchivo = nombrearchivo;
+    }
+
+    public String getDescripcionopcional() {
+        return descripcionopcional;
+    }
+
+    public void setDescripcionopcional(String descripcionopcional) {
+        this.descripcionopcional = descripcionopcional;
+    }
+public void addUsuario (String nick){
+    etiquetados.add(nick);
+}
+public void addCoordenadas(Coordenadas coor){
+    coordenadas.add (coor);
+}
+
+    @Override
+    public String toString() {
+        return "Fotografia{" + "nombrearchivo=" + nombrearchivo + ", publico=" + publico + ", descripcionopcional=" + descripcionopcional + ", etiquetados=" + etiquetados + ", coordenadas=" + coordenadas + '}';
+    }
+ 
+    
+}
