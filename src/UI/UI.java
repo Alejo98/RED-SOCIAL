@@ -5,16 +5,10 @@
  */
 package UI;
 
-import datos.Comentarios;
-import datos.Coordenadas;
-import datos.Fotografia;
+import datos.*;
 import Lectura.Lectura;
-import datos.Usuarios;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 /**
  *
@@ -43,7 +37,7 @@ import java.util.Scanner;
         Scanner sc = new Scanner( System.in );
         Lectura lectura= new Lectura();
         
-        while(op != 10) {
+        
             System.out.println("marque 1 para registrar un usuario");
             System.out.println("marque 2 para hacer un comentario");
             System.out.println("marque 3 para subir fotos y etiquetar personas en ellas");
@@ -53,6 +47,9 @@ import java.util.Scanner;
             System.out.println("marque 7 para listar comentarios en los que aparece una palabra ");
           try{
             op = Integer.parseInt(sc.nextLine());
+            if ((op<1)||(op>8))
+                throw new IllegalArgumentException("Ingrese un numero entre 1 y 7 para ejecutar."
+                        + " Una funcion del programa");
             switch(op){
                 
                 case 1:
@@ -262,12 +259,13 @@ import java.util.Scanner;
             
             }
           }catch(NumberFormatException ex){
+              System.out.println("INGRESE UN NUMERO");
             
-        }
+          }catch(IllegalArgumentException ex){
+              System.out.println(ex.getMessage());
+          }
             
     }
  }               
-}  
-
 
 
